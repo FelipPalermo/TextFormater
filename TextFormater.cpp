@@ -1,5 +1,6 @@
 #include <iostream> 
 #include <string>
+#include <fstream>
 
 /////////////
 //
@@ -11,6 +12,8 @@
 
 int main(){
 
+
+    std::ofstream output; 
 
     // Variable for logic operations 
     int logic = 0; 
@@ -60,11 +63,17 @@ int main(){
     // Add " & } to the end of string
     St1 += "\""; St1 += "}";
 
-    // Print the string 
-    for(int i = 0; i < St1.size(); i++){
 
-        std::cout << St1[i]; 
-    }
+    // Create a .txt file
+    output.open("Output.txt");
+    // First line
+    output<<"Content  : " << "\n";
+    // Output of the program
+    output<< St1; 
+
+
+    // Close file
+    output.close();
 
     // Return 0 if everything runs ok
     return 0; 
